@@ -38,7 +38,7 @@
         {
           "type": "git",
           "url": "https://github.com/godotengine/godot",
-          "commit": "a524cc92e7cccd012d028d870e4648c59473d04e",
+          "commit": "83d5db294dbb77a6df2c85cb56c50ef5b98bb3ee",
           "branch": "2.1"
         }
       ],
@@ -77,7 +77,7 @@
         {
           "type": "git",
           "url": "https://github.com/godotengine/godot",
-          "commit": "a524cc92e7cccd012d028d870e4648c59473d04e",
+          "commit": "83d5db294dbb77a6df2c85cb56c50ef5b98bb3ee",
           "branch": "2.1"
         }
       ],
