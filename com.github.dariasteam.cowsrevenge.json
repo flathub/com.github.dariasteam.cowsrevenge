@@ -134,7 +134,6 @@
                           /app/share/icons/hicolor/128x128/apps/com.github.dariasteam.cowsrevenge.png",
 
         "rm -rf /app/cowsrevenge"
-
       ]
     }
   ]
