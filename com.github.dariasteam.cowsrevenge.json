@@ -113,7 +113,7 @@
         {
           "type": "git",
           "url": "https://github.com/Dariasteam/Cows-Revenge",
-          "commit" : "dc4e65763653d0fff72379532685a8c2391ca05b"
+          "branch": "stable"
         }
       ],
       "buildsystem": "simple",
