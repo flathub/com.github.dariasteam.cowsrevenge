@@ -10,7 +10,7 @@
      "--socket=pulseaudio",
      "--persist=.godot",
      "--share=ipc",
-     "--device=dri"
+     "--device=all"
   ],
   "build-options" : {
     "split" : false,
