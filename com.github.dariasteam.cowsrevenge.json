@@ -70,7 +70,7 @@
             pulseaudio=yes \\
             udev=no \\
             tools=yes",
-            strip bin/godot*,
+            "strip bin/godot*",
             "install -D -m755 bin/godot* /app/bin/godot-bin"
       ]
     },
@@ -113,7 +113,7 @@
             pulseaudio=yes \\
             udev=no \\
             tools=no",
-          strip bin/godot*,
+          "strip bin/godot*",
           "install -D -m755 bin/godot.x11.opt.*.llvm /app/templates/linux_x11_`getconf LONG_BIT`_release"
       ]
     },
