@@ -50,6 +50,10 @@
             verbose=yes \\
             -j `nproc` \\
             target=release_debug \\
+            disable_3d=yes \\
+            disable_advanced_gui=yes \\
+            module_websocket_enabled=no \\
+            module_webm_enabled=no \\
             use_llvm=yes \\
             builtin_freetype=no \\
             builtin_libmpcdec=yes \\
@@ -66,6 +70,7 @@
             pulseaudio=yes \\
             udev=no \\
             tools=yes",
+            strip bin/godot*,
             "install -D -m755 bin/godot* /app/bin/godot-bin"
       ]
     },
@@ -88,6 +93,10 @@
             verbose=yes \\
             -j `nproc` \\
             target=release \\
+            disable_3d=yes \\
+            disable_advanced_gui=yes \\
+            module_websocket_enabled=no \\
+            module_webm_enabled=no \\
             use_llvm=yes \\
             builtin_freetype=no \\
             builtin_libmpcdec=yes \\
@@ -104,6 +113,7 @@
             pulseaudio=yes \\
             udev=no \\
             tools=no",
+          strip bin/godot*,
           "install -D -m755 bin/godot.x11.opt.*.llvm /app/templates/linux_x11_`getconf LONG_BIT`_release"
       ]
     },
