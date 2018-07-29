@@ -69,7 +69,7 @@
             builtin_squish=yes \\
             pulseaudio=yes \\
             udev=no \\
-            tools=yes",
+            tools=no",
             "strip bin/godot*",
             "install -D -m755 bin/godot* /app/bin/godot-bin"
       ]
