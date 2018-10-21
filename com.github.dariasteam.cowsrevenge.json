@@ -10,7 +10,7 @@
      "--socket=pulseaudio",
      "--persist=.godot",
      "--share=ipc",
-     "--device=all"
+     "--device=dri"
   ],
   "build-options" : {
     "split" : false,
@@ -65,8 +65,7 @@
             builtin_squish=yes \\
             pulseaudio=yes \\
             udev=no \\
-            tools=no",
-            "strip bin/godot*",
+            tools=yes",
             "install -D -m755 bin/godot* /app/bin/godot-bin"
       ]
     },
@@ -75,7 +74,7 @@
       "buildsystem": "simple",
       "sources": [
         {
-          "type":  "git",
+          "type": "git",
           "url": "https://github.com/godotengine/godot",
           "branch": "2.1"
         }
@@ -105,7 +104,6 @@
             pulseaudio=yes \\
             udev=no \\
             tools=no",
-          "strip bin/godot*",
           "install -D -m755 bin/godot.x11.opt.*.llvm /app/templates/linux_x11_`getconf LONG_BIT`_release"
       ]
     },
@@ -140,3 +138,4 @@
     }
   ]
 }
+
