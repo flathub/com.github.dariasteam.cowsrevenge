@@ -2,7 +2,7 @@
   "app-id": "com.github.dariasteam.cowsrevenge",
   "branch": "stable",
   "runtime": "org.freedesktop.Platform",
-  "runtime-version": "1.6",
+  "runtime-version": "18.08",
   "sdk": "org.freedesktop.Sdk",
   "command": "cowsrevenge",
   "finish-args": [
