@@ -77,7 +77,7 @@
             {
                "type":"git",
                "url":"https://github.com/godotengine/godot",
-               "branch":"2.1"
+               "tag":"2.1.5-stable"
             }
          ]
       },
@@ -117,7 +117,7 @@
             {
                "type":"git",
                "url":"https://github.com/godotengine/godot",
-               "branch":"2.1"
+               "tag":"2.1.5-stable"
             }
          ]
       },
