@@ -1,49 +1,51 @@
 {
-  "app-id": "com.github.dariasteam.cowsrevenge",
-  "branch": "stable",
-  "runtime": "org.freedesktop.Platform",
-  "runtime-version": "18.08",
-  "sdk": "org.freedesktop.Sdk",
-  "command": "cowsrevenge",
-  "finish-args": [
-     "--socket=x11",
-     "--socket=pulseaudio",
-     "--persist=.godot",
-     "--share=ipc",
-     "--device=dri"
-  ],
-  "build-options" : {
-    "split" : false,
-    "no-debuginfo" : true
-  },
-  "modules": [
-    {
-      "name": "scons",
-      "buildsystem": "simple",
-      "cleanup": [ "*" ],
-      "sources": [
-        {
-          "type": "archive",
-          "url": "http://downloads.sourceforge.net/project/scons/scons/2.5.1/scons-2.5.1.tar.gz",
-          "sha256": "0b25218ae7b46a967db42f2a53721645b3d42874a65f9552ad16ce26d30f51f2"
-        }
-      ],
-      "build-commands": [ "python setup.py install --prefix=/app" ]
-    },
-    "shared-modules/glu/glu-9.0.0.json",
-    {
-      "name": "godot",
-      "buildsystem": "simple",
-      "sources": [
-        {
-          "type": "git",
-          "url": "https://github.com/godotengine/godot",
-          "branch": "2.1"
-        }
-      ],
-      "cleanup" : [ "/bin/godot-bin" ],
-      "build-commands": [
-          "scons platform=server \\
+   "app-id":"com.github.dariasteam.cowsrevenge",
+   "branch":"stable",
+   "runtime":"org.freedesktop.Platform",
+   "runtime-version":"20.08",
+   "sdk":"org.freedesktop.Sdk",
+   "command":"cowsrevenge",
+   "finish-args":[
+      "--socket=x11",
+      "--socket=pulseaudio",
+      "--persist=.godot",
+      "--share=ipc",
+      "--device=dri"
+   ],
+   "build-options":{
+      "split":false,
+      "no-debuginfo":true
+   },
+   "modules":[
+      "shared-modules/python2.7/python-2.7.json",
+      {
+         "name":"scons",
+         "buildsystem":"simple",
+         "build-commands":[
+            "python setup.py install --prefix=/app"
+         ],
+         "cleanup":[
+            "*"
+         ],
+         "sources":[
+            {
+               "type":"archive",
+               "url":"http://downloads.sourceforge.net/project/scons/scons/2.5.1/scons-2.5.1.tar.gz",
+               "sha256":"0b25218ae7b46a967db42f2a53721645b3d42874a65f9552ad16ce26d30f51f2",
+               "x-checker-data":{
+                  "type":"anitya",
+                  "project-id":"4770",
+                  "url-template":"https://downloads.sourceforge.net/project/scons/scons/$version/scons-$version.tar.gz"
+               }
+            }
+         ]
+      },
+      "shared-modules/glu/glu-9.json",
+      {
+         "name":"godot",
+         "buildsystem":"simple",
+         "build-commands":[
+            "scons platform=server \\
             CCFLAGS=-I/app/include \\
             prefix=/app \\
             unix_global_settings_path=/app \\
@@ -67,21 +69,23 @@
             udev=no \\
             tools=yes",
             "install -D -m755 bin/godot* /app/bin/godot-bin"
-      ]
-    },
-    {
-      "name": "godot-release-template",
-      "buildsystem": "simple",
-      "sources": [
-        {
-          "type": "git",
-          "url": "https://github.com/godotengine/godot",
-          "branch": "2.1"
-        }
-      ],
-      "cleanup" : [ "/templates" ],
-      "build-commands": [
-          "scons platform=x11 \\
+         ],
+         "cleanup":[
+            "/bin/godot-bin"
+         ],
+         "sources":[
+            {
+               "type":"git",
+               "url":"https://github.com/godotengine/godot",
+               "branch":"2.1"
+            }
+         ]
+      },
+      {
+         "name":"godot-release-template",
+         "buildsystem":"simple",
+         "build-commands":[
+            "scons platform=x11 \\
             CCFLAGS=-I/app/include \\
             prefix=/app \\
             unix_global_settings_path=/app \\
@@ -104,38 +108,44 @@
             pulseaudio=yes \\
             udev=no \\
             tools=no",
-          "install -D -m755 bin/godot.x11.opt.*.llvm /app/templates/linux_x11_`getconf LONG_BIT`_release"
-      ]
-    },
-    {
-      "name": "cowsrevenge",
-      "sources": [
-        {
-          "type": "git",
-          "url": "https://github.com/Dariasteam/Cows-Revenge",
-          "branch": "stable"
-        }
-      ],
-      "buildsystem": "simple",
-      "build-commands": [
-        "mkdir -p /app/cowsrevenge",
-        "mv * /app/cowsrevenge/",
-        "cd /app/cowsrevenge/; \\
-          ../bin/godot-bin -export 'Linux X11' cowsrevenge",
-
-        "install -D -m755 /app/cowsrevenge/cowsrevenge /app/bin/",
-        "install -D -m644 /app/cowsrevenge/linux_build/com.github.dariasteam.cowsrevenge.desktop \\
+            "install -D -m755 bin/godot.x11.opt.*.llvm /app/templates/linux_x11_`getconf LONG_BIT`_release"
+         ],
+         "cleanup":[
+            "/templates"
+         ],
+         "sources":[
+            {
+               "type":"git",
+               "url":"https://github.com/godotengine/godot",
+               "branch":"2.1"
+            }
+         ]
+      },
+      {
+         "name":"cowsrevenge",
+         "buildsystem":"simple",
+         "build-commands":[
+            "mkdir -p /app/cowsrevenge",
+            "mv * /app/cowsrevenge/",
+            "cd /app/cowsrevenge/; ../bin/godot-bin -export 'Linux X11' cowsrevenge",
+            "install -D -m755 /app/cowsrevenge/cowsrevenge /app/bin/",
+            "install -D -m644 /app/cowsrevenge/linux_build/com.github.dariasteam.cowsrevenge.desktop \\
                           /app/share/applications/com.github.dariasteam.cowsrevenge.desktop",
-        "install -D -m644 /app/cowsrevenge/linux_build/com.github.dariasteam.cowsrevenge.appdata.xml \\
+            "install -D -m644 /app/cowsrevenge/linux_build/com.github.dariasteam.cowsrevenge.appdata.xml \\
                           /app/share/metainfo/com.github.dariasteam.cowsrevenge.appdata.xml",
-        "install -D -m755 /app/cowsrevenge/linux_build/cowsrevenge_icon_64.png \\
+            "install -D -m755 /app/cowsrevenge/linux_build/cowsrevenge_icon_64.png \\
                           /app/share/icons/hicolor/64x64/apps/com.github.dariasteam.cowsrevenge.png",
-        "install -D -m755 /app/cowsrevenge/linux_build/cowsrevenge_icon_128.png \\
+            "install -D -m755 /app/cowsrevenge/linux_build/cowsrevenge_icon_128.png \\
                           /app/share/icons/hicolor/128x128/apps/com.github.dariasteam.cowsrevenge.png",
-
-        "rm -rf /app/cowsrevenge"
-      ]
-    }
-  ]
+            "rm -rf /app/cowsrevenge"
+         ],
+         "sources":[
+            {
+               "type":"git",
+               "url":"https://github.com/Dariasteam/Cows-Revenge",
+               "branch":"stable"
+            }
+         ]
+      }
+   ]
 }
-
