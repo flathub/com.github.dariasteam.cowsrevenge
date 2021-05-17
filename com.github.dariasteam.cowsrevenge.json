@@ -31,12 +31,7 @@
             {
                "type":"archive",
                "url":"http://downloads.sourceforge.net/project/scons/scons/2.5.1/scons-2.5.1.tar.gz",
-               "sha256":"0b25218ae7b46a967db42f2a53721645b3d42874a65f9552ad16ce26d30f51f2",
-               "x-checker-data":{
-                  "type":"anitya",
-                  "project-id":"4770",
-                  "url-template":"https://downloads.sourceforge.net/project/scons/scons/$version/scons-$version.tar.gz"
-               }
+               "sha256":"0b25218ae7b46a967db42f2a53721645b3d42874a65f9552ad16ce26d30f51f2"
             }
          ]
       },
