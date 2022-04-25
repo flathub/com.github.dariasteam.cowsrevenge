@@ -3,6 +3,9 @@
    "runtime":"org.freedesktop.Platform",
    "runtime-version":"21.08",
    "sdk":"org.freedesktop.Sdk",
+   "sdk-extensions" : [
+      "org.freedesktop.Sdk.Extension.llvm13"
+   ],
    "command":"cowsrevenge",
    "finish-args":[
       "--socket=x11",
@@ -63,6 +66,10 @@
             tools=yes",
             "install -D -m755 bin/godot* /app/bin/godot-bin"
          ],
+         "build-options":{
+            "append-path": "/usr/lib/sdk/llvm13/bin",
+            "prepend-ld-library-path": "/usr/lib/sdk/llvm13/lib"
+         },
          "cleanup":[
             "/bin/godot-bin"
          ],
@@ -103,6 +110,10 @@
             tools=no",
             "install -D -m755 bin/godot.x11.opt.*.llvm /app/templates/linux_x11_`getconf LONG_BIT`_release"
          ],
+         "build-options":{
+            "append-path": "/usr/lib/sdk/llvm13/bin",
+            "prepend-ld-library-path": "/usr/lib/sdk/llvm13/lib"
+         },
          "cleanup":[
             "/templates"
          ],
