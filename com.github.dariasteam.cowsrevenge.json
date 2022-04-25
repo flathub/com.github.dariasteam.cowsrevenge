@@ -1,8 +1,7 @@
 {
    "app-id":"com.github.dariasteam.cowsrevenge",
-   "branch":"stable",
    "runtime":"org.freedesktop.Platform",
-   "runtime-version":"20.08",
+   "runtime-version":"21.08",
    "sdk":"org.freedesktop.Sdk",
    "command":"cowsrevenge",
    "finish-args":[
@@ -13,7 +12,6 @@
       "--device=dri"
    ],
    "build-options":{
-      "split":false,
       "no-debuginfo":true
    },
    "modules":[
@@ -138,7 +136,7 @@
             {
                "type":"git",
                "url":"https://github.com/Dariasteam/Cows-Revenge",
-               "branch":"stable"
+               "commit": "d62371e365e2e6d24f63fd28d6153347e6a5c841"
             }
          ]
       }
