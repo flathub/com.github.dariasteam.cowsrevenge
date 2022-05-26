@@ -6,8 +6,9 @@
    "sdk-extensions" : [
       "org.freedesktop.Sdk.Extension.llvm13"
    ],
-   "command":"cowsrevenge",
-   "finish-args":[
+   "command": "cowsrevenge",
+   "rename-icon": "cowsrevenge",
+   "finish-args": [
       "--socket=x11",
       "--socket=pulseaudio",
       "--persist=.godot",
@@ -129,19 +130,12 @@
          "name":"cowsrevenge",
          "buildsystem":"simple",
          "build-commands":[
-            "mkdir -p /app/cowsrevenge",
-            "mv * /app/cowsrevenge/",
-            "cd /app/cowsrevenge/; ../bin/godot-bin -export 'Linux X11' cowsrevenge",
-            "install -D -m755 /app/cowsrevenge/cowsrevenge /app/bin/",
-            "install -D -m644 /app/cowsrevenge/linux_build/com.github.dariasteam.cowsrevenge.desktop \\
-                          /app/share/applications/com.github.dariasteam.cowsrevenge.desktop",
-            "install -D -m644 /app/cowsrevenge/linux_build/com.github.dariasteam.cowsrevenge.appdata.xml \\
-                          /app/share/metainfo/com.github.dariasteam.cowsrevenge.appdata.xml",
-            "install -D -m755 /app/cowsrevenge/linux_build/cowsrevenge_icon_64.png \\
-                          /app/share/icons/hicolor/64x64/apps/com.github.dariasteam.cowsrevenge.png",
-            "install -D -m755 /app/cowsrevenge/linux_build/cowsrevenge_icon_128.png \\
-                          /app/share/icons/hicolor/128x128/apps/com.github.dariasteam.cowsrevenge.png",
-            "rm -rf /app/cowsrevenge"
+            "install -Dm644 linux_build/com.github.dariasteam.cowsrevenge.desktop -t /app/share/applications/",
+            "install -Dm644 linux_build/com.github.dariasteam.cowsrevenge.appdata.xml -t /app/share/metainfo/",
+            "install -Dm644 linux_build/cowsrevenge_icon_64.png /app/share/icons/hicolor/64x64/apps/cowsrevenge.png",
+            "install -Dm644 linux_build/cowsrevenge_icon_128.png /app/share/icons/hicolor/128x128/apps/cowsrevenge.png",
+            "/app/bin/godot-bin -export 'Linux X11' cowsrevenge",
+            "install -Dm755 cowsrevenge /app/bin/"
          ],
          "sources":[
             {
